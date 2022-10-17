@@ -23,5 +23,6 @@ public class MyAuthenticationFailureHandler implements AuthenticationFailureHand
         response.setContentType("application/json;charset=UTF-8");
         String s = new ObjectMapper().writeValueAsString(failResult);
         response.getWriter().println(s);
+        //aaa
     }
 }
