@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lmh.user.mapper.RoleMapper">
+    <resultMap id="baseRoleMap" type="Role">
+<!--        private Integer id;-->
+<!--        private String name;-->
+<!--        private String nameZh;-->
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="name_zh" property="nameZh"></result>
+    </resultMap>
+
+
+    <select id="getRoleByUid" resultMap="baseRoleMap">
+        SELECT r.id, r.name, r.name_zh
+        FROM role r, `user_role` ur
+        WHERE r.id = ur.rid
+        AND ur.uid = #{uid}
+    </select>
+
+</mapper>
